@@ -3,10 +3,12 @@ const path = require('path');
 
 module.exports = class Product {
     //Def the prod shape
-    constructor(t, c) {
+    constructor(title, courseCode, description, date) {
         //The property recieving the argument (t)
-        this.title = t; 
-        this.courseCode = c;
+        this.title = title; 
+        this.courseCode = courseCode;
+        this.description = description;
+        this.date = date;
     }
     //Save method to store into the products array
     save() {

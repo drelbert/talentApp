@@ -1,5 +1,5 @@
-//Importing class from models/product
 const Product = require('../models/product');
+
 
 exports.getAddProduct = (req, res, next) => {
     res.render('admin/add-product', {
@@ -14,21 +14,21 @@ exports.getAddProduct = (req, res, next) => {
   exports.postAddProduct = (req, res, next) => {
     //Creating new object based on class blueprint
     //Note classes are blueprints
-    const product = new Product(req.body.title, req.body.courseCode);
+    const title = req.body.title;
+    const courseCode = req.body.courseCode;
+    const description = req.body.description;
+    const date = req.body.date;
+    const product = new Product(title, courseCode, description, date);
     product.save();
     res.redirect('/');
   };
 
-  // Related to the shop route 
   exports.getProducts = (req, res, next) => {
     Product.fetchAll(products => {
-    res.render('shop/product-list', {
-      prods: products,
-      pageTitle: 'Current Selections',
-      path: '/',
-      hasProducts: products.length > 0,
-      activeShop: true,
-      productCSS: true
-    }); 
-   });
-  };
+        res.render('admin/products', {
+          prods: products,
+          pageTitle: 'Admin Products',
+          path: '/admin/products'
+        }); 
+     });
+  }
