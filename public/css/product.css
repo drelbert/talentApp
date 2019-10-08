@@ -80,3 +80,20 @@ button:active {
     background-color: #BB86FC;
     color: #FFFFFF
 }
+
+.card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    width: 300px;
+  }
+  
+  .card__header,
+  .card__content {
+    padding: 1rem;
+  }
+  
+  .card__header h1,
+  .card__content h1,
+  .card__content h2,
+  .card__content p {
+    margin: 0;
+  }
